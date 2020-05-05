@@ -1344,6 +1344,7 @@ window.cena;
 
 function gat(){
     document.getElementById("rab").innerHTML = 'Цена:' + ' '  + document.getElementById("proverka").innerHTML + ', ' + 'Собственноручно собраннй букет.'
+    document.getElementById("qwer").value = 9;
 }
 </script>
 
@@ -1583,15 +1584,7 @@ document.querySelector('#close').onclick = function() {
     var slider = multiItemSlider('.slider')
 
   </script>
-
-    <h2 id="graab" class="kaif">Оформление заказа</h2>
-
-            <canvas height="320" width="320" id='example1'></canvas>
-            <p id="rab" class="kaif">Цена:</p>
-
-
-
-            <script>
+<script>
 
                  document.getElementById("qwer").value = db;
 
@@ -1602,20 +1595,27 @@ document.querySelector('#close').onclick = function() {
                  }
 
         </script>
-        </form>
-    <form action="" method="post" novalidate>
+
+    <h2 id="graab" class="kaif">Оформление заказа</h2>
+
+            <canvas height="320" width="320" id='example1'></canvas>
+            <p id="rab" class="kaif">Цена:</p>
+
+
+    <div id="cover" class="kaif">
+        <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
             {{ form.name.label }}<br>
-            {{ form.name(size=32) }}
+            {{ form.name(size=20) }}
         </p>
         <p>
             {{ form.email.label }}<br>
-            {{ form.email(size=32) }}
+            {{ form.email(size=20) }}
         </p>
         <p>
             {{ form.date.label }}<br>
-            {{ form.date(size=32) }}
+            {{ form.date(size=20) }}
         </p>
     </form>
     </div>
