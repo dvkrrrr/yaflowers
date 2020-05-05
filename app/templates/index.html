@@ -34,6 +34,7 @@ function click_1(sender) {
    var tutt = [];
    var cena;
    cena = 0
+   var db = 0;
 
     function buy(sender) {
 
@@ -41,6 +42,8 @@ function click_1(sender) {
              ctx     = example.getContext('2d');
              pic     = new Image();
         if (sender == '1.png') {
+            db = 1;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/1.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
@@ -48,42 +51,56 @@ function click_1(sender) {
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[0][2]}}+ ' ' + 'рублей'
         } else if (sender == '2.png') {
+            db = 2;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/2.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[1][2]}}+ ' ' + 'рублей'
         } else if (sender == '3.png') {
+            db = 3;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/3.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[2][2]}}+ ' ' + 'рублей'
         } else if (sender == '4.png') {
+            db = 4;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/4.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[3][2]}}+ ' ' + 'рублей'
         } else if (sender == '5.png') {
+            db = 5;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/5.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[4][2]}}+ ' ' + 'рублей'
         } else if (sender == '6.png') {
+            db = 6;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/6.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[5][2]}}+ ' ' + 'рублей'
         } else if (sender == '7.png') {
+            db = 7;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/7.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
             }
             document.getElementById("rab").innerHTML = 'Цена:' + ' ' + {{name[6][2]}}+ ' ' + 'рублей'
         } else if (sender == '8.png') {
+            db = 8;
+            document.getElementById("qwer").value = db;
             pic.src = "{{ url_for("static", filename="images/8.jpg")}}";
             pic.onload = function () {
                     ctx.drawImage(pic, 0, 0, 300, 300);
@@ -1358,6 +1375,9 @@ function gat(){
 
     </div>
     <button class="knopka" onclick="myFunction()">Развернуть / свернуть</button>
+    <form action="/admins" class="knopka">
+        <button>Страница администрации</button>
+    </form>
 
 
     <script>
@@ -1570,6 +1590,19 @@ document.querySelector('#close').onclick = function() {
             <p id="rab" class="kaif">Цена:</p>
 
 
+
+            <script>
+
+                 document.getElementById("qwer").value = db;
+
+                 function getVal() {
+                     var ddb = document.getElementById("qwer").value;
+
+
+                 }
+
+        </script>
+        </form>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>

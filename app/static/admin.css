@@ -1,0 +1,15 @@
+body {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    width: 350px;
+    overflow: auto;
+    text-align: center;
+}
+
+header {
+    font-size: 48px;
+    color: white;
+    background-color: black;
+    height: 110px;
+}
