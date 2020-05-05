@@ -1570,15 +1570,21 @@ document.querySelector('#close').onclick = function() {
             <p id="rab" class="kaif">Цена:</p>
 
 
-    <div id="cover" class="kaif">
-        <form name="form1" method="post" action="send.php" class="gg">
-        <input type="text" class="gg" name="fio"  placeholder="Как к вам можно обращаться?" required>
-        <input type="text" class="gg" name="phone" placeholder="Укажите свой номер телефона" required>
-        <input type="text" class="gg" name="email" placeholder="Укажите вашу почту" required>
-        <input type="datetime-local" class="gg" name="date" placeholder="Укажите дату и время доставки" required>
-        <input type="text" class="gg" name="address" placeholder="Укажите адрес доставки" required>
-            <button id="qwer">Заказать</button>
-        </form>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}
+        </p>
+        <p>
+            {{ form.date.label }}<br>
+            {{ form.date(size=32) }}
+        </p>
+    </form>
     </div>
 
     <footer>
