@@ -37,8 +37,9 @@ def index():
     count2 = len(result2)
     if form.validate_on_submit():
         username = form.username.data
-        password = form.password.data
-        return redirect(url_for('success', username=username, password=password))
+        address = form.address.data
+        date = form.date.data
+        return redirect(url_for('success', username=username, address=address, date=date))
 
     return render_template('index.html', name=result, count=count, name1=result1, count1=count1, name2=result2,
                            count2=count2, form=form)
@@ -68,10 +69,20 @@ def admin():
 @app.route('/success')
 def success():
     username = request.args.get('username', None)
-    password = request.args.get('password', None)
-    msg = Message('Hello', sender='danurabotai@gmail.com', recipients=['dvkrrrr@gmail.com'])
-    mail.send(msg)
+    address = request.args.get('address', None)
+    date = request.args.get('date', None)
+    send_email("уведомление о заказе",sender='danurabotai@gmail.com',recipients=username,
+               text_body=render_template("message.txt",
+                               address=address, date=date),
+               html_body=render_template("message.txt",
+                               address=address, date=date))
     return 'Message Sent'
+
+def send_email(subject, sender, recipients, text_body, html_body):
+    msg = Message('Hello', sender='danurabotai@gmail.com', recipients=['dvkrrrr@gmail.com'])
+    msg.body = text_body
+    msg.html = html_body
+    mail.send(msg)
 
 
 if __name__ == "__main__":

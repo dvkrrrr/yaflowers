@@ -1602,13 +1602,22 @@ document.querySelector('#close').onclick = function() {
             <p id="rab" class="kaif">Цена:</p>
 
 
-    <div id="cover" class="kaif">
-    <form action="" method="post" novalidate>
+
+        <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
         {{ form.username.label }}<br>
         {{ form.username(class="form-control") }}<br>
         {% for error in form.username.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.address.label }}<br>
+        {{ form.address(class="form-control") }}<br>
+        {% for error in form.address.errors %}
     <div class="alert alert-danger" role="alert">
         {{ error }}
     </div>
@@ -1623,20 +1632,9 @@ document.querySelector('#close').onclick = function() {
     </div>
     {% endfor %}
     </p>
-
-    <p>
-        {{ form.address.label }}<br>
-        {{ form.address(class="form-control") }}<br>
-        {% for error in form.address.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    {% endfor %}
-    </p>
-    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
     <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 </form>
-    </div>
+
 
     <footer>
         <p></p>
