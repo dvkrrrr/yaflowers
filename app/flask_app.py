@@ -71,7 +71,7 @@ def success():
     username = request.args.get('username', None)
     address = request.args.get('address', None)
     date = request.args.get('date', None)
-    send_email("уведомление о заказе",sender='danurabotai@gmail.com',recipients=username,
+    send_email("уведомление о заказе",sender='danurabotai@gmail.com',recipients=[username],
                text_body=render_template("message.txt",
                                address=address, date=date),
                html_body=render_template("message.txt",
@@ -79,7 +79,7 @@ def success():
     return 'Message Sent'
 
 def send_email(subject, sender, recipients, text_body, html_body):
-    msg = Message('Hello', sender='danurabotai@gmail.com', recipients=['dvkrrrr@gmail.com'])
+    msg = Message(subject, sender=sender, recipients=recipients)
     msg.body = text_body
     msg.html = html_body
     mail.send(msg)
@@ -87,3 +87,8 @@ def send_email(subject, sender, recipients, text_body, html_body):
 
 if __name__ == "__main__":
     app.run()
+
+
+
+
+
