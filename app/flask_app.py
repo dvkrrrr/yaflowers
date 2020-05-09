@@ -66,7 +66,7 @@ def admin():
                            your_bouquet=your_bouquet.orders)
 
 
-@app.route('/success')
+@app.route('/success', methods=['GET', 'POST'])
 def success():
     username = request.args.get('username', None)
     address = request.args.get('address', None)

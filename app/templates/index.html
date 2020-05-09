@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Bad+Script|Caveat|Marck+Script|Pacifico&display=swap" rel="stylesheet">
+    <script src="/static/js/vau.js"></script>
     <meta charset="UTF-8">
     <title> Заказ цветов онлайн </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -41,6 +42,7 @@ function click_1(sender) {
     var example = document.getElementById('example1');
              ctx     = example.getContext('2d');
              pic     = new Image();
+
         if (sender == '1.png') {
             db = 1;
             document.getElementById("qwer").value = db;

@@ -7,4 +7,4 @@ class LoginForm(FlaskForm):
     username = StringField('Почта', validators=[DataRequired()])
     address = StringField('Адрес', validators=[DataRequired()])
     date = StringField('Дата и время', validators=[DataRequired()])
-    submit = SubmitField('Войти')
+    submit = SubmitField('Заказать')
