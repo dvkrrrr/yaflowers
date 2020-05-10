@@ -22,11 +22,9 @@ app.config['MAIL_PASSWORD'] = 'yegfxbve'
 mail = Mail(app)
 
 
-
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = LoginForm()
+
     con = sqlite3.connect("bouquet.db")
     cur = con.cursor()
     result = cur.execute("""SELECT * FROM bouquets""").fetchall()
@@ -35,14 +33,10 @@ def index():
     count1 = len(result1)
     result2 = cur.execute("""SELECT * FROM beauty""").fetchall()
     count2 = len(result2)
-    if form.validate_on_submit():
-        username = form.username.data
-        address = form.address.data
-        date = form.date.data
-        return redirect(url_for('success', username=username, address=address, date=date))
+
 
     return render_template('index.html', name=result, count=count, name1=result1, count1=count1, name2=result2,
-                           count2=count2, form=form)
+                           count2=count2)
 
 
 @app.route('/admins')
@@ -65,18 +59,29 @@ def admin():
                            bouquet7=bouquet7.orders, bouquet8=bouquet8.orders,
                            your_bouquet=your_bouquet.orders)
 
+@app.route('/succcess', methods=['GET', 'POST'])
+def succcess():
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        address = form.address.data
+        date = form.date.data
+        return redirect(url_for('success', username=username, address=address, date=date))
+    return render_template('succcess.html', form=form)
+
 
 @app.route('/success', methods=['GET', 'POST'])
 def success():
     username = request.args.get('username', None)
     address = request.args.get('address', None)
     date = request.args.get('date', None)
-    send_email("уведомление о заказе",sender='danurabotai@gmail.com',recipients=[username],
+    send_email("уведомление о заказе", sender='danurabotai@gmail.com', recipients=[username],
                text_body=render_template("message.txt",
-                               address=address, date=date),
+                                         address=address, date=date),
                html_body=render_template("message.txt",
-                               address=address, date=date))
+                                         address=address, date=date))
     return 'Message Sent'
+
 
 def send_email(subject, sender, recipients, text_body, html_body):
     msg = Message(subject, sender=sender, recipients=recipients)
@@ -87,8 +92,3 @@ def send_email(subject, sender, recipients, text_body, html_body):
 
 if __name__ == "__main__":
     app.run()
-
-
-
-
-
