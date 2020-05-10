@@ -32,10 +32,22 @@ def index():
     count1 = len(result1)
     result2 = cur.execute("""SELECT * FROM beauty""").fetchall()
     count2 = len(result2)
-
-
     return render_template('index.html', name=result, count=count, name1=result1, count1=count1, name2=result2,
                            count2=count2)
+
+
+@app.route('/suck', methods=['POST', 'GET'])
+def suck():
+    if request.method == 'POST':
+        s = request.form['a']
+        if s != 0:
+            my_db.global_init(PATH_TO_DB)
+            session = my_db.create_session()
+            f1 = session.query(my_db.Products).filter(my_db.Products.id == s).first()
+            f1.orders += 1
+            session.commit()
+        return redirect(url_for('succcess'))
+    return 'hm'
 
 
 @app.route('/admins')
@@ -66,13 +78,6 @@ def succcess():
         address = form.address.data
         date = form.date.data
         return redirect(url_for('success', username=username, address=address, date=date))
-    s = request.form['a']
-    if s != 0:
-        my_db.global_init(PATH_TO_DB)
-        session = my_db.create_session()
-        f1 = session.query(my_db.Products).filter(my_db.Products.id == s).first()
-        f1.orders += 1
-        session.commit()
     return render_template('succcess.html', form=form)
 
 
