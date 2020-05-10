@@ -24,7 +24,6 @@ mail = Mail(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
     con = sqlite3.connect("bouquet.db")
     cur = con.cursor()
     result = cur.execute("""SELECT * FROM bouquets""").fetchall()
@@ -59,7 +58,7 @@ def admin():
                            bouquet7=bouquet7.orders, bouquet8=bouquet8.orders,
                            your_bouquet=your_bouquet.orders)
 
-@app.route('/succcess', methods=['GET', 'POST'])
+@app.route('/succcess', methods=['get', 'post'])
 def succcess():
     form = LoginForm()
     if form.validate_on_submit():
@@ -67,6 +66,13 @@ def succcess():
         address = form.address.data
         date = form.date.data
         return redirect(url_for('success', username=username, address=address, date=date))
+    s = request.form['a']
+    if s != 0:
+        my_db.global_init(PATH_TO_DB)
+        session = my_db.create_session()
+        f1 = session.query(my_db.Products).filter(my_db.Products.id == s).first()
+        f1.orders += 1
+        session.commit()
     return render_template('succcess.html', form=form)
 
 

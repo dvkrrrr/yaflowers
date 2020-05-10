@@ -14,14 +14,14 @@ header{
 h1 {
   text-align: center;
   color: #fff;
-  font-size: 50 px;
+  font-size: 150%;
   font-family: 'Caveat', cursive;
 
 }
 
 #ready{
   margin: auto;
-  right: -500px;
+  right: -150%;
   text-align: center;
   width: 1300px;
   left: 50%;
@@ -57,8 +57,8 @@ h1 {
 
 #type_flower1, #type_flower2, #type_flower3, #type_flower4, #type_flower5, type_grass1, #type_grass2, #type_grass3, #type_grass4, #type_grass5, type_beauty1, #type_beauty2, #type_beauty3, #type_beauty4, #type_beauty5{
   margin: auto;
-  padding: 15px;
-  font-size: 30 px;
+  padding: 10%;
+  font-size: 45%;
 }
 #second_div{
   display: none;

@@ -1586,26 +1586,23 @@ document.querySelector('#close').onclick = function() {
     var slider = multiItemSlider('.slider')
 
   </script>
-<script>
 
-                 document.getElementById("qwer").value = db;
-
-                 function getVal() {
-                     var ddb = document.getElementById("qwer").value;
-
-
-                 }
-
-        </script>
 
     <h2 id="graab" class="kaif">Оформление заказа</h2>
 
             <canvas height="320" width="320" id='example1'></canvas>
             <p id="rab" class="kaif">Цена:</p>
 
+    <form method="post" action="/succcess" name="form1">
+            <button name="a" onclick="getVal()" id="qwer">Заказать</button>
+        <script>
+                 function getVal() {
+                     var ddb = document.getElementById("qwer").value;
+                     console.log(ddb)
+                 }
+        </script>
+    </form>
 
-
-        <button id="qwer">Заказать</button>
 
 
     <footer>

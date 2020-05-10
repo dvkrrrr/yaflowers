@@ -10,29 +10,17 @@
     <p>
         {{ form.username.label }}<br>
         {{ form.username(class="form-control") }}<br>
-        {% for error in form.username.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    {% endfor %}
+
     </p>
     <p>
         {{ form.address.label }}<br>
         {{ form.address(class="form-control") }}<br>
-        {% for error in form.address.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    {% endfor %}
+
     </p>
     <p>
         {{ form.date.label }}<br>
         {{ form.date(class="form-control") }}<br>
-        {% for error in form.date.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    {% endfor %}
+
     </p>
     <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 </form>
