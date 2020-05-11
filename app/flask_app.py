@@ -5,10 +5,14 @@ from app.forms import LoginForm
 import os
 from flask import Flask
 from flask_mail import Mail, Message
+from flask_ngrok import run_with_ngrok
 
 SECRET_KEY = os.urandom(64)
 
+
 app = Flask(__name__)
+run_with_ngrok(app)
+
 app.config['SECRET_KEY'] = SECRET_KEY
 app.debug = True
 PATH_TO_DB = "db/db_of_orders.sqlite"
