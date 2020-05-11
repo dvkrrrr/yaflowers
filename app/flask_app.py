@@ -91,7 +91,7 @@ def success():
                                          address=address, date=date),
                html_body=render_template("message.txt",
                                          address=address, date=date))
-    return 'Message Sent'
+    return redirect(url_for('index'))
 
 
 def send_email(subject, sender, recipients, text_body, html_body):
