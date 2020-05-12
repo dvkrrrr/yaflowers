@@ -710,7 +710,7 @@ function minus(sender){
     window.flowers;
     var countt;
     window.udol;
-
+if (cena > 0){
     if (sender == 1){
         if (flowers.has('розакрасная') == true){
             strr = flowers.get('розакрасная').split(' ')
@@ -1220,6 +1220,7 @@ function minus(sender){
             cena = cena - 150
         }
     }
+}
     document.getElementById("proverka").innerHTML = cena + ' ' + 'рублей'
 }
 
